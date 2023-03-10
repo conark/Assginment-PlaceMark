@@ -7,7 +7,7 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const playlists = await db.playlistStore.getUserPlaylists(loggedInUser._id);
       const viewData = {
-        title: "Playtime Dashboard",
+        title: "Walk Trail Dashboard",
         user: loggedInUser,
         playlists: playlists,
       };
