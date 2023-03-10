@@ -5,13 +5,13 @@ export const accountsController = {
   index: {
     auth: false,
     handler: function (request, h) {
-      return h.view("main", { title: "Welcome to Playlist" });
+      return h.view("main", { title: "Welcome to Walk Trail Map" });
     },
   },
   showSignup: {
     auth: false,
     handler: function (request, h) {
-      return h.view("signup-view", { title: "Sign up for Playlist" });
+      return h.view("signup-view", { title: "Sign up for Walk Trail Map" });
     },
   },
   signup: {
@@ -32,7 +32,7 @@ export const accountsController = {
   showLogin: {
     auth: false,
     handler: function (request, h) {
-      return h.view("login-view", { title: "Login to Playlist" });
+      return h.view("login-view", { title: "Login to Walk Trail Map" });
     },
   },
   login: {
@@ -68,4 +68,35 @@ export const accountsController = {
     }
     return { isValid: true, credentials: user };
   },
+  edit: {
+      handler: async function (request, h) {
+        const user = await db.userStore.getUserById(request.params.userid);
+        const viewData = {
+          title: "Edit User",
+          user: user,
+        };
+        return h.view("user-view", viewData);
+      },
+  },
+  update: {
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("user-view", { title: "Edit user error", errors: error.details }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.userid);
+      const newUser = {
+        firstName: request.payload.firstName,
+        lastName: request.payload.lastName,
+        email: request.payload.email,
+        password: request.payload.password,
+      };
+      await db.userStore.updateUser(user, newUser);
+      return h.redirect(`/user-view/${request.params.userid}`);
+    },
+  },
+
 };

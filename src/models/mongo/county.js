@@ -2,7 +2,7 @@ import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
-const playlistSchema = new Schema({
+const countySchema = new Schema({
   title: String,
   img: String,
   userid: {
@@ -11,4 +11,4 @@ const playlistSchema = new Schema({
   },
 });
 
-export const Playlist = Mongoose.model("Playlist", playlistSchema);
+export const County = Mongoose.model("County", countySchema);

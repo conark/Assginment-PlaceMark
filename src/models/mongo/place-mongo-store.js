@@ -1,5 +1,5 @@
-import { Track } from "./track.js";
-import { Playlist } from "./playlist.js";
+import { Track } from "./place.js";
+import { County } from "./county.js";
 
 export const trackMongoStore = {
   async getAllTracks() {
@@ -7,15 +7,15 @@ export const trackMongoStore = {
     return tracks;
   },
 
-  async addTrack(playlistId, track) {
-    track.playlistid = playlistId;
+  async addTrack(countyId, track) {
+    track.countyid = countyId;
     const newTrack = new Track(track);
     const trackObj = await newTrack.save();
     return this.getTrackById(trackObj._id);
   },
 
-  async getTracksByPlaylistId(id) {
-    const tracks = await Track.find({ playlistid: id }).lean();
+  async getTracksByCountyId(id) {
+    const tracks = await Track.find({ countyid: id }).lean();
     return tracks;
   },
 

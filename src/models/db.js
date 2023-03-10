@@ -5,31 +5,31 @@ import { userJsonStore } from "./json/user-json-store.js";
 import { playlistJsonStore } from "./json/playlist-json-store.js";
 import { trackJsonStore } from "./json/track-json-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
-import { playlistMongoStore } from "./mongo/playlist-mongo-store.js";
-import { trackMongoStore } from "./mongo/track-mongo-store.js";
+import { countyMongoStore } from "./mongo/county-mongo-store.js";
+import { trackMongoStore } from "./mongo/place-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
   userStore: null,
-  playlistStore: null,
+  countyStore: null,
   trackStore: null,
 
   init(storeType) {
     switch (storeType) {
       case "json" :
         this.userStore = userJsonStore;
-        this.playlistStore = playlistJsonStore;
+        this.countyStore = countyJsonStore;
         this.trackStore = trackJsonStore;
         break;
       case "mongo" :
         this.userStore = userMongoStore;
-        this.playlistStore = playlistMongoStore;
+        this.countyStore = countyMongoStore;
         this.trackStore = trackMongoStore;
         connectMongo();
         break;
       default :
         this.userStore = userMemStore;
-        this.playlistStore = playlistMemStore;
+        this.countyStore = countyMemStore;
         this.trackStore = trackMemStore;
     }
   }
