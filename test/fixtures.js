@@ -33,46 +33,50 @@ export const testUsers = [
   },
 ];
 
-export const mozart = {
-  title: "Mozart Favourites",
+export const cork = {
+  countyname: "Cork",
 };
 
-export const concerto = {
-  title: "Violin Concerto No. 3",
-  artist: "Mozart",
-  duration: 15,
+export const park = {
+  placename: "Cork River Park No. 3",
+  description: "River Park",
+  latitude: 15,
+  longitude: 1,
 };
 
-export const beethoven = {
-  title: "Mozart Favourites",
+export const dublin = {
+  countyname: "Dublin",
 };
 
-export const testPlaylists = [
+export const testCounties = [
   {
-    title: "Beethoven Sonatas",
+    countyname: "Cork",
   },
   {
-    title: "Beethoven Concertos",
+    countyname: "Dublin",
   },
   {
-    title: "Beethoven Symphonies",
+    countyname: "Waterford",
   },
 ];
 
-export const testTracks = [
+export const testPlaces = [
   {
-    title: "Piano Sonata No. 3",
-    artist: "Beethoven",
-    duration: 5,
+    placename: "The Lough Trail",
+    description: "Forest Park",
+    latitude: 5,
+    longitude: 1,
   },
   {
-    title: "Piano Sonata No. 7",
-    artist: "Beethoven",
-    duration: 6,
+    placename: "Gougane Barra",
+    description: "Forest Park",
+    latitude: 6,
+    longitude: 1,
   },
   {
-    title: "Piano Sonata No. 10",
-    artist: "Beethoven",
-    duration: 4,
+    placename: "The Scilly Walk Loop",
+    description: "Forest Park",
+    latitude: 4,
+    longitude: 1,
   },
 ];

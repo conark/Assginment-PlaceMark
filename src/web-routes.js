@@ -2,7 +2,7 @@ import { aboutController } from "./controllers/about-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { countyController } from "./controllers/county-controller.js";
-import { trackController } from "./controllers/place-controller.js";
+import { placeController } from "./controllers/place-controller.js";
 
 
 export const webRoutes = [
@@ -13,6 +13,9 @@ export const webRoutes = [
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
 
+  { method: "GET", path: "/edituser/{userid}", config: accountsController.edit },
+  { method: "POST", path: "/updateuser/{userid}", config: accountsController.update },
+
   { method: "GET", path: "/about", config: aboutController.index },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
@@ -20,15 +23,11 @@ export const webRoutes = [
   { method: "GET", path: "/dashboard/deletecounty/{id}", config: dashboardController.deleteCounty },
 
   { method: "GET", path: "/county/{id}", config: countyController.index },
-  { method: "POST", path: "/county/{id}/addtrack", config: countyController.addTrack },
-  { method: "GET", path: "/county/{id}/deletetrack/{trackid}", config: countyController.deleteTrack },
+  { method: "POST", path: "/county/{id}/addplace", config: countyController.addPlace },
+  { method: "GET", path: "/county/{id}/deleteplace/{placeid}", config: countyController.deletePlace },
 
-  { method: "GET", path: "/track/{id}/edittrack/{trackid}", config: trackController.index },
-  { method: "POST", path: "/track/{id}/updatetrack/{trackid}", config: trackController.update },
-  
-
-  { method: "GET", path: "/edituser/{userid}", config: accountsController.edit },
-  { method: "POST", path: "/updateuser/{userid}", config: accountsController.update },
+  { method: "GET", path: "/place/{id}/editplace/{placeid}", config: placeController.index },
+  { method: "POST", path: "/place/{id}/updateplace/{placeid}", config: placeController.update },
 
   { method: "POST", path: "/county/{id}/uploadimage", config: countyController.uploadImage },
 

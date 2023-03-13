@@ -3,7 +3,7 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const countySchema = new Schema({
-  title: String,
+  countyname: String,
   img: String,
   userid: {
     type: Schema.Types.ObjectId,

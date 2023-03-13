@@ -1,15 +1,15 @@
-import { TrackSpec } from "../models/joi-schemas.js";
+import { PlaceSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
-export const trackController = {
+export const placeController = {
   index: {
     handler: async function (request, h) {
       const county = await db.countyStore.getCountyById(request.params.id);
-      const track = await db.trackStore.getTrackById(request.params.trackid);
+      const place = await db.placeStore.getPlaceById(request.params.placeid);
       const viewData = {
         title: "Edit Song",
         county: county,
-        track: track,
+        place: place,
       };
       return h.view("place-view", viewData);
     },
@@ -17,20 +17,21 @@ export const trackController = {
 
   update: {
     validate: {
-      payload: TrackSpec,
+      payload: PlaceSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("place-view", { title: "Edit track error", errors: error.details }).takeover().code(400);
+        return h.view("place-view", { title: "Edit place error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
-      const track = await db.trackStore.getTrackById(request.params.trackid);
-      const newTrack = {
-        title: request.payload.title,
-        artist: request.payload.artist,
-        duration: Number(request.payload.duration),
+      const place = await db.placeStore.getPlaceById(request.params.placeid);
+      const newPlace = {
+        placename: request.payload.placename,
+        description: request.payload.description,
+        latitude: Number(request.payload.latitude),
+        longitude: Number(request.payload.longitude),
       };
-      await db.trackStore.updateTrack(track, newTrack);
+      await db.placeStore.updatePlace(place, newPlace);
       return h.redirect(`/county/${request.params.id}`);
     },
   },

@@ -2,14 +2,15 @@ import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
-const trackSchema = new Schema({
-  title: String,
-  artist: String,
-  duration: Number,
+const placeSchema = new Schema({
+  placename: String,
+  description: String,
+  latitude: Number,
+  longitude: Number,
   countyid: {
     type: Schema.Types.ObjectId,
     ref: "County",
   },
 });
 
-export const Track = Mongoose.model("Track", trackSchema);
+export const Place = Mongoose.model("Place", placeSchema);

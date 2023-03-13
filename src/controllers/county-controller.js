@@ -1,4 +1,4 @@
-import { TrackSpec } from "../models/joi-schemas.js";
+import { PlaceSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { imageStore } from "../models/image-store.js";
 
@@ -14,9 +14,9 @@ export const countyController = {
     },
   },
 
-  addTrack: {
+  addPlace: {
     validate: {
-      payload: TrackSpec,
+      payload: PlaceSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("county-view", { title: "Add place error", errors: error.details }).takeover().code(400);
@@ -24,20 +24,21 @@ export const countyController = {
     },
     handler: async function (request, h) {
       const county = await db.countyStore.getCountyById(request.params.id);
-      const newTrack = {
-        title: request.payload.title,
-        artist: request.payload.artist,
-        duration: Number(request.payload.duration),
+      const newPlace = {
+        placename: request.payload.placename,
+        description: request.payload.description,
+        latitude: Number(request.payload.latitude),
+        longitude: Number(request.payload.longitude),
       };
-      await db.trackStore.addTrack(county._id, newTrack);
+      await db.placeStore.addPlace(county._id, newPlace);
       return h.redirect(`/county/${county._id}`);
     },
   },
 
-  deleteTrack: {
+  deletePlace: {
     handler: async function (request, h) {
       const county = await db.countyStore.getCountyById(request.params.id);
-      await db.trackStore.deleteTrack(request.params.trackid);
+      await db.placeStore.deletePlace(request.params.placeid);
       return h.redirect(`/county/${county._id}`);
     },
   },

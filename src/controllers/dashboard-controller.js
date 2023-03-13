@@ -27,7 +27,7 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const newCounty = {
         userid: loggedInUser._id,
-        title: request.payload.title,
+        countyname: request.payload.countyname,
       };
       await db.countyStore.addCounty(newCounty);
       return h.redirect("/dashboard");

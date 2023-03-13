@@ -22,30 +22,33 @@ export const seedData = {
   },
   counties: {
     _model: "County",
-    mozart: {
-      title: "Mozart Favourites",
+    cork: {
+      countyname: "Cork",
       userid: "->users.bart"
     }
   },
-  tracks: {
-    _model : "Track",
-    track_1 : {
-      title: "Violin Concerto No. 1",
-      artist: "Mozart",
-      duration: 15,
-      countyid: "->counties.mozart"
+  places: {
+    _model : "Place",
+    place_1 : {
+      placename: "Cork River Park No. 1",
+      description: "River Park",
+      latitude: 15,
+      longitude: 1,
+      countyid: "->counties.cork"
     },
-    track_2 : {
-      title: "Violin Concerto No. 2",
-      artist: "Mozart",
-      duration: 11,
-      countyid: "->counties.mozart"
+    place_2 : {
+      placename: "Cork River Park No. 2",
+      description: "River Park",
+      latitude: 11,
+      longitude: 1,
+      countyid: "->counties.cork"
     },
-    track_3 : {
-      title: "Violin Concerto No. 3",
-      artist: "Mozart",
-      duration: 23,
-      countyid: "->counties.mozart"
+    place_3 : {
+      placename: "Cork River Park No. 3",
+      description: "River Park",
+      latitude: 23,
+      longitude: 1,
+      countyid: "->counties.cork"
     }
   }
 };

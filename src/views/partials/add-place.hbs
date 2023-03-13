@@ -1,15 +1,18 @@
-<form class="box" action="/county/{{county._id}}/addtrack" method="POST">
+<form class="box" action="/county/{{county._id}}/addplace" method="POST">
   <label>Enter walk trail details:</label>
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Trail Name" name="title">
+        <input class="input" type="text" placeholder="Enter Place Name" name="placename">
       </div>
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Discription" name="artist">
+        <input class="input" type="text" placeholder="Enter Description" name="description">
       </div>
       <div class="field">
-        <input class="input" type="text" placeholder="Enter Latitude" name="duration">
+        <input class="input" type="text" placeholder="Enter Latitude" name="latitude">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Longitude" name="longitude">
       </div>
     </div>
   </div>

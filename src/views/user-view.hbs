@@ -1,20 +1,21 @@
 {{> menu active="dashboard"}}
 
+<label>User Details:</label>
 <form class="box"  action="/updateuser/{{user._id}}" method="POST">
-  <label>Update User Details:</label>
+  <tr>
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <input class="input" type="text" name="firstName", value="{{user.firstName}}">
+        <label for="firstName">First Name:</label><input class="input" type="text" name="firstName", value="{{user.firstName}}">
       </div>
       <div class="field">
-        <input class="input" type="text" name="lastName" value="{{user.lastName}}">
+        <label for="lastName">Last Name:</label><input class="input" type="text" name="lastName" value="{{user.lastName}}">
       </div>
       <div class="field">
-        <input class="input" type="text"  name="email" value="{{user.email}}">
+        <label for="email">Email:</label><input class="input" type="text"  name="email" value="{{user.email}}">
       </div>
       <div class="field">
-        <input class="input" type="text"  name="password" value="{{user.password}}">
+        <label for="password">Password:</label><input class="input" type="text"  name="password" value="{{user.password}}">
       </div>
     </div>
   </div>

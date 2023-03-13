@@ -1,5 +1,5 @@
 import { County } from "./county.js";
-import { trackMongoStore } from "./place-mongo-store.js";
+import { placeMongoStore } from "./place-mongo-store.js";
 
 export const countyMongoStore = {
   async getAllCounties() {
@@ -11,7 +11,7 @@ export const countyMongoStore = {
     if (id) {
       const county = await County.findOne({ _id: id }).lean();
       if (county) {
-        county.tracks = await trackMongoStore.getTracksByCountyId(county._id);
+        county.places = await placeMongoStore.getPlacesByCountyId(county._id);
       }
       return county;
     }
@@ -43,7 +43,7 @@ export const countyMongoStore = {
 
   async updateCounty(updatedCounty) {
     const county = await County.findOne({ _id: updatedCounty._id });
-    county.title = updatedCounty.title;
+    county.countyname = updatedCounty.countyname;
     county.img = updatedCounty.img;
     await county.save();
   },
