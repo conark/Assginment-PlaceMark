@@ -3,8 +3,11 @@
 
 🧚 Programming languages
 
-Javascript
-handleBar
+Javascript,
+handlebar
 
 🌱 Functions
 
+
+🌱 how to run
+npm run start
