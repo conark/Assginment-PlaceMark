@@ -1,6 +1,7 @@
 {
   "places": [
     {
+      "category": "Lough side",
       "placename": "The Lough Trail",
       "description": "Forest Park",
       "latitude": 12,
@@ -9,6 +10,7 @@
       "countyid": "b59ca3dc-68dc-40d5-bf7a-ef29a88a85f0"
     },
     {
+      "category": "Forest",
       "placename": "Gougane Barra",
       "description": "Forest Park",
       "latitude": 23,
@@ -17,6 +19,7 @@
       "countyid": "b59ca3dc-68dc-40d5-bf7a-ef29a88a85f0"
     },
     {
+      "category": "Forest",
       "placename": "The Scilly Walk Loop",
       "description": "Forest Park",
       "latitude": 54,

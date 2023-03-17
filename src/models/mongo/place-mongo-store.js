@@ -40,10 +40,12 @@ export const placeMongoStore = {
   },
 
   async updatePlace(place, updatedPlace) {
-    place.placename = updatedPlace.placename;
-    place.description = updatedPlace.description;
-    place.latitude = updatedPlace.latitude;
-    place.longitude = updatedPlace.longitude;
-    await place.save();
+    const placeDoc = await Place.findOne({ _id: place._id });
+    placeDoc.category = updatedPlace.category;
+    placeDoc.placename = updatedPlace.placename;
+    placeDoc.description = updatedPlace.description;
+    placeDoc.latitude = updatedPlace.latitude;
+    placeDoc.longitude = updatedPlace.longitude;
+    await placeDoc.save();
   },
 };

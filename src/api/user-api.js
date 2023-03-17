@@ -79,7 +79,7 @@ export const userApi = {
     },
     tags: ["api"],
     description: "Delete all userApi",
-    notes: "All userApi removed from Playtime",
+    notes: "All userApi removed from Trailmap",
   },
 
   authenticate: {
@@ -105,4 +105,5 @@ export const userApi = {
     validate: { payload: UserCredentialsSpec, failAction: validationError },
     response: { schema: JwtAuth, failAction: validationError },
   },
+  
 };

@@ -12,6 +12,7 @@ export const UserCredentialsSpec = Joi.object()
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
+  admin: Joi.boolean().allow("").optional().example(true),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
@@ -23,6 +24,7 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
 export const PlaceSpec = Joi.object()
   .keys({
+    category: Joi.string().required().example("River side"),
     placename: Joi.string().required().example("Gougane Barra"),
     description: Joi.string().required().example("Forest Park"),
     latitude: Joi.number().allow("").optional().example(12),

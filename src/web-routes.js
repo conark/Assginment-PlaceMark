@@ -3,6 +3,9 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { countyController } from "./controllers/county-controller.js";
 import { placeController } from "./controllers/place-controller.js";
+import { admindashboardController } from "./controllers/admin-dashboard-controller.js";
+
+
 
 
 export const webRoutes = [
@@ -21,6 +24,13 @@ export const webRoutes = [
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addcounty", config: dashboardController.addCounty },
   { method: "GET", path: "/dashboard/deletecounty/{id}", config: dashboardController.deleteCounty },
+  
+
+  { method: "GET", path: "/admindashboard", config: admindashboardController.index },
+  { method: "POST", path: "/admindashboard/adduser", config: admindashboardController.addUser },
+  { method: "GET", path: "/admindashboard/deleteuser/{id}", config: admindashboardController.deleteUser },
+  { method: "GET", path: "/admindashboard/adminedituser/{userid}", config: admindashboardController.editUser },
+  { method: "POST", path: "/admindashboard/adminupdateuser/{userid}", config: admindashboardController.updateUser },
 
   { method: "GET", path: "/county/{id}", config: countyController.index },
   { method: "POST", path: "/county/{id}/addplace", config: countyController.addPlace },

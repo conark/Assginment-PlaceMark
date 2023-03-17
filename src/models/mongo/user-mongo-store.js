@@ -39,10 +39,13 @@ export const userMongoStore = {
   },
 
   async updateUser(user, updatedUser) {
-    user.firstName = updatedUser.firstName;
-    user.lastName = updatedUser.lastName;
-    user.email = updatedUser.email;
-    user.password = updatedUser.password;
-    await user.save();
+    const userDoc = await User.findOne({ _id: user._id });
+    userDoc.id = user.id;
+    userDoc.firstName = updatedUser.firstName;
+    userDoc.lastName = updatedUser.lastName;
+    userDoc.email = updatedUser.email;
+    userDoc.password = updatedUser.password;
+    userDoc.admin = updatedUser.admin;
+    await userDoc.save();
   },
 };

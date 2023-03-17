@@ -2,14 +2,21 @@
   <div class="navbar-brand">
     {{> poi-brand}}
   </div>
+  <div><p> hello {{user.firstName}}</p></div>
   <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false"> <span aria-hidden="true"></span>
     <span aria-hidden="true"></span> <span aria-hidden="true"></span> </a>
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a id="dashboard" class="button" href="/dashboard"> Dashboard </a> <a id="edituser" class="button" href="/edituser/{{user._id}}"> User </a> <a id="about" class="button" href="/about"> About </a> <a
-          id="logout" class="button" href="/logout"> Logout </a>
+          <a id="dashboard" class="button" href="/dashboard"> Dashboard </a> 
+          <a id="edituser" class="button" href="/edituser/{{user._id}}" > User details </a> 
+          {{#if user.admin}}
+            <a id="admindashboard" class="button" href="/admindashboard"> Admin dashboard </a>       
+          <!-- Show admin dashboard button if user is an admin -->
+          {{/if}}
+          <a id="about" class="button" href="/about"> About </a> 
+          <a id="logout" class="button" href="/logout"> Logout </a> 
         </div>
       </div>
     </div>
@@ -17,7 +24,7 @@
 </nav>
 
 <script>
-  document.getElementById("{{active}}").classList.add("is-primary");
+  if(document.getElementById("{{active}}").classList.add("is-primary")) {
   document.addEventListener("DOMContentLoaded", () => {
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
@@ -36,4 +43,7 @@
       });
     }
   });
+  };
 </script>
+
+

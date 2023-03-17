@@ -7,7 +7,7 @@ export const placeController = {
       const county = await db.countyStore.getCountyById(request.params.id);
       const place = await db.placeStore.getPlaceById(request.params.placeid);
       const viewData = {
-        title: "Edit Song",
+        title: "Edit Place",
         county: county,
         place: place,
       };
@@ -26,6 +26,7 @@ export const placeController = {
     handler: async function (request, h) {
       const place = await db.placeStore.getPlaceById(request.params.placeid);
       const newPlace = {
+        category: request.payload.category,
         placename: request.payload.placename,
         description: request.payload.description,
         latitude: Number(request.payload.latitude),

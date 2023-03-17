@@ -76,6 +76,7 @@ export const accountsController = {
           user: user,
         };
         return h.view("user-view", viewData);
+        
       },
   },
   update: {
@@ -93,9 +94,16 @@ export const accountsController = {
         lastName: request.payload.lastName,
         email: request.payload.email,
         password: request.payload.password,
+        admin: request.payload.admin,
       };
       await db.userStore.updateUser(user, newUser);
-      return h.redirect(`/user-view/${request.params.userid}`);
+      const viewData = {
+        title: "User updated",
+        user,
+      };
+      // return h.view("user-view", viewData).redirect(`/user-view/${request.params.id}`);
+       return h.redirect("/dashboard");
+  
     },
   },
 

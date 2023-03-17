@@ -25,6 +25,7 @@ export const countyController = {
     handler: async function (request, h) {
       const county = await db.countyStore.getCountyById(request.params.id);
       const newPlace = {
+        category: request.payload.category,
         placename: request.payload.placename,
         description: request.payload.description,
         latitude: Number(request.payload.latitude),

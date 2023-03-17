@@ -1,7 +1,7 @@
-{{> menu active="edituser"}}
+{{> menu active="admindashboard"}}
 
 <label>User Details:</label>
-<form class="box"  action="/updateuser/{{user._id}}" method="POST">
+<form class="box"  action="/adminupdateuser/{{user._id}}" method="POST">
   <tr>
   <div class="field is-horizontal">
     <div class="field-body">
@@ -18,7 +18,7 @@
         <label for="password">Password:</label><input class="input" type="text"  name="password" value="{{user.password}}">
       </div>
       <div class="field">
-        <label for="admin">Admin:</label><input class="input" type="boolean"  name="admin" value="{{user.admin}}"disabled>
+        <label for="admin">Admin:</label><input class="input" type="boolean"  name="admin" value="{{user.admin}}">
       </div>
     </div>
   </div>
