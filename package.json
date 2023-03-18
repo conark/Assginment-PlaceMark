@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=16.14.0"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "./node_modules/.bin/nodemon src/server.js --ignore 'src/models/json/*.json'",

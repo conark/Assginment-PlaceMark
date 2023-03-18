@@ -39,14 +39,14 @@ export const admindashboardController = {
   deleteUser: {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.id);
-      await db.userStore.deleteUserById(user._id);
-      return h.redirect("/admindashboard");
+      await db.userStore.deleteUserById(request.params.user.id);
+      return h.redirect(`/admindashboard/${user._id}`);
     },
 
 
   },  
   
-  editUser: {
+  admineditUser: {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.userid);
       const viewData = {
@@ -57,7 +57,7 @@ export const admindashboardController = {
       
     },
 },
-updateUser: {
+adminupdateUser: {
   validate: {
     payload: UserSpec,
     options: { abortEarly: false },
@@ -72,7 +72,7 @@ updateUser: {
       lastName: request.payload.lastName,
       email: request.payload.email,
       password: request.payload.password,
-      admin: request.payload.admin
+      admin: boolean(request.payload.admin),
     };
     await db.userStore.updateUser(user, newUser);
     const viewData = {

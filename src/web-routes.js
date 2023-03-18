@@ -29,8 +29,9 @@ export const webRoutes = [
   { method: "GET", path: "/admindashboard", config: admindashboardController.index },
   { method: "POST", path: "/admindashboard/adduser", config: admindashboardController.addUser },
   { method: "GET", path: "/admindashboard/deleteuser/{id}", config: admindashboardController.deleteUser },
-  { method: "GET", path: "/admindashboard/adminedituser/{userid}", config: admindashboardController.editUser },
-  { method: "POST", path: "/admindashboard/adminupdateuser/{userid}", config: admindashboardController.updateUser },
+  
+  { method: "GET", path: "/adminedituser/{userid}", config: admindashboardController.admineditUser },
+  { method: "POST", path: "/admindashboard/adminupdateuser/{userid}", config: admindashboardController.adminupdateUser },
 
   { method: "GET", path: "/county/{id}", config: countyController.index },
   { method: "POST", path: "/county/{id}/addplace", config: countyController.addPlace },
