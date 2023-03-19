@@ -30,8 +30,8 @@ export const webRoutes = [
   { method: "POST", path: "/admindashboard/adduser", config: admindashboardController.addUser },
   { method: "GET", path: "/admindashboard/deleteuser/{id}", config: admindashboardController.deleteUser },
   
-  { method: "GET", path: "/adminedituser/{userid}", config: admindashboardController.admineditUser },
-  { method: "POST", path: "/admindashboard/adminupdateuser/{userid}", config: admindashboardController.adminupdateUser },
+  { method: "GET", path: "/admindashboard/adminedituser/{id}", config: admindashboardController.admineditUser },
+  { method: "POST", path: "/admindashboard/adminupdateuser/{id}", config: admindashboardController.adminupdateUser },
 
   { method: "GET", path: "/county/{id}", config: countyController.index },
   { method: "POST", path: "/county/{id}/addplace", config: countyController.addPlace },

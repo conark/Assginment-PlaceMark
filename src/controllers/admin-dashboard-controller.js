@@ -40,7 +40,6 @@ export const admindashboardController = {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.id);
       await db.userStore.deleteUserById(request.params.id);
-      // return h.redirect(`/admindashboard/${_id}`);
       return h.redirect("/admindashboard");
     },
 
@@ -48,7 +47,7 @@ export const admindashboardController = {
   
   admineditUser: {
     handler: async function (request, h) {
-      const user = await db.userStore.getUserById(request.params.userid);
+      const user = await db.userStore.getUserById(request.params.id);
       const viewData = {
         title: "Edit User",
         user: user,
@@ -57,32 +56,32 @@ export const admindashboardController = {
       
     },
 },
-adminupdateUser: {
-  validate: {
-    payload: UserSpec,
-    options: { abortEarly: false },
-    failAction: function (request, h, error) {
-      return h.view("admin-user-view", { title: "Edit user error", errors: error.details }).takeover().code(400);
+  adminupdateUser: {
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("admin-user-view", { title: "Edit user error", errors: error.details }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.id);
+      const newUser = {
+        firstName: request.payload.firstName,
+        lastName: request.payload.lastName,
+        email: request.payload.email,
+        password: request.payload.password,
+        admin: boolean(request.payload.admin),
+      };
+      await db.userStore.updateUser(user, newUser);
+      const viewData = {
+        title: "User updated",
+        user,
+      };
+      return h.redirect("/admindashboard");
+
     },
   },
-  handler: async function (request, h) {
-    const user = await db.userStore.getUserById(request.params.userid);
-    const newUser = {
-      firstName: request.payload.firstName,
-      lastName: request.payload.lastName,
-      email: request.payload.email,
-      password: request.payload.password,
-      admin: boolean(request.payload.admin),
-    };
-    await db.userStore.updateUser(user, newUser);
-    const viewData = {
-      title: "User updated",
-      user,
-    };
-    return h.redirect("/admindashboard");
-
-  },
-},
 
 };
 
