@@ -3,6 +3,9 @@
 
 ![Alt text](public/images/map0.jpg)
 
+🧚 Youtube
+
+https://youtu.be/6GbO0GvJRpU
 
 🧚 Programming languages
 
@@ -10,6 +13,9 @@ Javascript,
 
 Handlebars
 
+🧚 Api documentation
+
+http://localhost:3000/documentation#/api/getApiUsers
  
 🧚 Dependencies
 
@@ -23,20 +29,33 @@ PlaceMark
 
 A point of interest (POI) for Walk Trail Map.
 
+🌱 Users
+
+Role: General
+
+- Homer Simpson	email:homer@simpson.com Passward: secret
+
+Role: General 
+
+- Marge	Simpson	email:marge@simpson.com	Passward: secret
+
+Role: Admin 
+
+- Bart Simpson email: bart@simpson.comPassward: secret
 
 🌱 Functions
 
- - Signin, Login
+- Signin, Login
 
- - About
+- About
 
- - Dashboard - List Counties, Add County, Delete County
+- Dashboard - List Counties, Add County, Delete County
 
   - List Places, Add Place, Delete Place
 
-    - User details - Update user detail
+- User details - Update user detail
     
-    - Admin dashboard - List users, Add User, update user (not working), delete user (not working)
+- Admin dashboard - List users, Add User, update user (not working), delete user (not working)
 
 
 🌱 Install - npm install
@@ -44,3 +63,5 @@ A point of interest (POI) for Walk Trail Map.
 🌱 How to run - npm run start
 
 🌱 How to test - npm run test
+
+🌱 How to test Api- npm run testapi

@@ -13,7 +13,7 @@
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit -t 10000",
     "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
-    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit"
+    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit --timeout 10000"
   },
   "repository": {
     "type": "git",

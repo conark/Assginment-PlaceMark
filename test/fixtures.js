@@ -1,4 +1,5 @@
-export const serviceUrl = "http://localhost:3000";
+// export const serviceUrl = "http://localhost:3000";
+export const serviceUrl ="https://poi-walk-trail-map.onrender.com";
 
 export const maggie = {
   firstName: "Maggie",
@@ -19,7 +20,7 @@ export const testUsers = [
     lastName: "Simpson",
     email: "homer@simpson.com",
     password: "secret",
-    admin: true,
+    admin: false,
   },
   {
     firstName: "Marge",
