@@ -4,12 +4,14 @@ import { db } from "../models/db.js";
 export const placeController = {
   index: {
     handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
       const county = await db.countyStore.getCountyById(request.params.id);
       const place = await db.placeStore.getPlaceById(request.params.placeid);
       const viewData = {
         title: "Edit Place",
         county: county,
         place: place,
+        user: loggedInUser,
       };
       return h.view("place-view", viewData);
     },

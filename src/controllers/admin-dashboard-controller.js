@@ -39,10 +39,10 @@ export const admindashboardController = {
   deleteUser: {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.id);
-      await db.userStore.deleteUserById(request.params.user.id);
-      return h.redirect(`/admindashboard/${user._id}`);
+      await db.userStore.deleteUserById(request.params.id);
+      // return h.redirect(`/admindashboard/${_id}`);
+      return h.redirect("/admindashboard");
     },
-
 
   },  
   

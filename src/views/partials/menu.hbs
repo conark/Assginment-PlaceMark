@@ -2,7 +2,6 @@
   <div class="navbar-brand">
     {{> poi-brand}}
   </div>
-  <div><p> hello {{user.firstName}}</p></div>
   <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false"> <span aria-hidden="true"></span>
     <span aria-hidden="true"></span> <span aria-hidden="true"></span> </a>
   <div class="navbar-menu" id="navMenu">
@@ -22,6 +21,7 @@
     </div>
   </div>
 </nav>
+<p style="text-align: right;"> Hello {{user.firstName}} !</p>
 
 <script>
   if(document.getElementById("{{active}}").classList.add("is-primary")) {

@@ -51,11 +51,11 @@ Role: Admin
 
 - Dashboard - List Counties, Add County, Delete County
 
-  - List Places, Add Place, Delete Place
+  - List Places, Add Place, Delete Place, image upload
 
 - User details - Update user detail
     
-- Admin dashboard - List users, Add User, update user (not working), delete user (not working)
+- Admin dashboard - List users, Add User, update user (not working), delete user
 
 
 🌱 Install - npm install
